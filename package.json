@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/DSM-Bouquet/DSM-Bouquet_Backend#readme",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
+    "jsonwebtoken": "^9.0.0",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
@@ -27,7 +29,9 @@
     "typeorm": "^0.3.11"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
     "@types/cors": "^2.8.13",
+    "@types/jsonwebtoken": "^9.0.0",
     "@types/morgan": "^1.9.3"
   }
 }
