@@ -1,27 +1,28 @@
-import { 
-    Column,
-    Entity, 
-    JoinColumn, 
-    OneToMany, 
-    OneToOne, 
-    PrimaryColumn, 
-    PrimaryGeneratedColumn 
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  OneToMany,
+  OneToOne,
+  PrimaryColumn,
+  PrimaryGeneratedColumn,
 } from "typeorm";
 import { Flower } from "./flower.entity";
 import { User } from "./user.entity";
 
-@Entity({ name: 'bouquet' })
+@Entity({ name: "bouquet" })
 export class Bouquet {
-    @PrimaryGeneratedColumn()
-    id!: number;
+  @PrimaryColumn({ nullable: false })
+  user_id!: number;
 
-    @Column({ nullable: false })
-    user_id!: number;
+  @CreateDateColumn()
+  createdAt!: Date;
 
-    @OneToOne(() => User, (user) => user.bouquet)
-    @JoinColumn({ name: 'user_id' })
-    user!: User;
+  @OneToOne(() => User, (user) => user.bouquet)
+  @JoinColumn({ name: "user_id" })
+  user!: User;
 
-    @OneToMany(() => Flower, (flower) => flower.bouquet)
-    flower!: Flower[];
-};
+  @OneToMany(() => Flower, (flower) => flower.bouquet)
+  flower!: Flower[];
+}
